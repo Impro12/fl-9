@@ -1,0 +1,148 @@
+@mixin forTextTransformedParts($color, $textAlign) {
+text-transform: uppercase;
+color: $color;
+text-align: $textAlign;
+}
+
+body {
+    background-color: $backgroundColor;
+}
+.main-wrapper {
+    max-width: 1150px;
+    margin: 0 auto;
+    font-family: $fontFamily;
+}
+header {
+    img {
+        width: 35%;
+        float: left;
+    }
+    nav {
+        float: right;
+        padding: 20px 0 20px 0;
+        margin-top: 180px;
+        border-top: 1.2px solid $bordersAndParagraphsColor;
+        border-bottom: 1.2px solid $bordersAndParagraphsColor;
+        a {
+            @include forTextTransformedParts($color: $mainFontColor, $textAlign: center);
+            text-decoration: none;
+            font-size: 20px;
+            padding: 0 80px 0 80px;
+            &:hover {
+                color: darken($mainFontColor, 7%);
+            }
+            &:active {
+                color: lighten($mainFontColor, 50%);
+                text-shadow: 1px 1px 3px darken($mainFontColor, 20%);
+            }
+        }
+    }
+}
+.toolbar {
+    float: right;
+    clear: both;
+    margin: 55px 0 35px 0;
+    font-weight: bold;
+    input[type="text"] {
+        padding: 14px 25px 14px 23px;
+        border: 1.2px solid $mainFontColor;
+        font-size: 16px;
+        background-color: $backgroundColor;
+    }
+    ::placeholder {
+        color:$mainFontColor;
+    }
+}
+
+.post-list {
+    clear: both;
+    display: grid;
+    grid-template-columns: 46% 46%;
+    grid-template-rows: 100%;
+    grid-row-gap: 30px;
+    grid-column-gap: 60px;
+    img {
+        width: 100%;
+        background-color: $articleBackgroundColor;
+        padding: 16px 16px 0 16px;
+        + div {
+            width: 100%;
+            background-color: $articleBackgroundColor;
+            padding: 10px 16px 16px 16px;
+            margin-top: -5px;
+        }
+    }
+    .post-description {
+        font-size: 12px;
+        color: $postDescriptionColor;
+    }
+    h3 {
+        @include forTextTransformedParts($color: $articleHeadersColor, $textAlign: left);
+        font-size: 16px;
+        border-top: 1px solid $bordersAndParagraphsColor;
+        padding: 7px 0 0 0;
+    }
+    p {
+        color: $bordersAndParagraphsColor;
+        font-size: 14px;
+    }
+}
+.about {
+    h1 {
+        @include forTextTransformedParts($color: $mainFontColor, $textAlign: right);
+        margin: 35px 0 0 0;
+    }
+    p {
+        margin: 0 auto 15px auto;
+        width: 95%;
+        color: $bordersAndParagraphsColor;
+        line-height: 25px;
+    }
+    img {
+        width: 100%;
+    }
+}
+.contact-form {
+    h1 {
+        @include forTextTransformedParts($color: $mainFontColor, $textAlign: right);
+        margin: 50px 0 0 0;
+    }
+    h4 {
+        @include forTextTransformedParts($color: $mainFontColor, $textAlign: right);
+        margin: 0;
+    }
+    input, textarea {
+        width: 98.5%;
+        margin-top: 20px;
+        padding: 15px 0 15px 15px;
+        font-size: 16px;
+        font-family: $fontFamily;
+        border: 1px solid $bordersAndParagraphsColor;
+        background-color: $backgroundColor;
+    }
+    ::placeholder {
+        color: $bordersAndParagraphsColor;
+    }
+    button {
+        @include forTextTransformedParts($color: #fff, $textAlign: center);
+        float: right;
+        width: 20%;
+        padding: 14px 0 14px 0;
+        margin-top: 20px;
+        background-color: $mainFontColor;
+        border: none;
+        font-weight: bold;
+        &:hover {
+            background-color: lighten($mainFontColor, 10%);
+        }
+        &:active {
+            background-color: lighten($mainFontColor, 20%);
+            margin: 22px 2px 0 0;
+        }
+    }
+}
+footer {
+    clear: both;
+    color: $bordersAndParagraphsColor;
+    font-size: 14px;
+}
